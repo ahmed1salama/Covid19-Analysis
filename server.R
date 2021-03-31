@@ -1,12 +1,13 @@
 source("main.R")
 
+
 server = function(input, output){
   
-  
   # Updating data every 4 hours
-  dataLoadingTrigger <- reactiveTimer(1000)
+  dataLoadingTrigger <- reactiveTimer(14400000)
   
   observeEvent(dataLoadingTrigger, {
+    print("trigger happend")
     updateData()
   })
   

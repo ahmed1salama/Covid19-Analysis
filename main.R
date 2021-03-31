@@ -3,6 +3,7 @@ library("DT") # tables displayed on HTML
 library("fs") # file system management
 
 
+
 # downloading the data
 
 downloadGithubData = function() {
@@ -67,14 +68,20 @@ get_data = function(){
   
 }
 
+if(!exists("full_data")){
+  full_data <<- get_data()
+}
+
 
 updateData = function() {
   # Download data from Johns Hopkins (https://github.com/CSSEGISandData/COVID-19) if the data is older than 0.5h
   if (!dir_exists("data")) {
+    print("data not found")
     dir.create('data')
     downloadGithubData()
     full_data <<- get_data()
   } else if ((!file.exists("data/covid19_data.zip")) || (as.double(Sys.time() - file_info("data/covid19_data.zip")$change_time, units = "hours") > 4)) {
+    print("more than 4 hoirs")
     downloadGithubData()
     full_data <<- get_data()
   } 
