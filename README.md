@@ -3,7 +3,7 @@
 
 * This dashboard demonstrates some recent news about the Coronavirus pandemic. This App is a simulator, that reads from the John Hopkins dataset
 
-* his app is for educational purposes only !!
+* This app is for educational purposes only !!
 
 ## Data source
 
